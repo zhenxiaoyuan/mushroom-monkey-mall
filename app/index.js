@@ -3,40 +3,84 @@
 // react
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {
+    BrowserRouter as Router,
+    Route,
+    Link,
+} from 'react-router-dom';
 
 import './index.less';
 
-class HelloReact extends React.Component {
+import Home from './containers/Home';
 
-    constructor() {
-        super();
-        this.state = {
-            initDone: false,
-        };
-    }
+const App = () => (
+    <Router>
+        <div>
+            <h2>Header</h2>
 
-    componentDidMount() {
-        setTimeout(() => {
-            this.setState({
-                initDone: true,
-            })
-        }, 1000);
-    }
+            <ul>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/about">About</Link></li>
+                <li><Link to="/contact">Contact</Link></li>
+            </ul>
 
-    render() {
-        return (
-            <div>
-                {
-                    this.state.initDone
-                    ? <p>Hello, initiate is already DONE.</p>
-                    : <p>Loading...</p>
-                }
-            </div>
-        );
-    }
-}
+            <hr />
 
-ReactDOM.render(<HelloReact />, document.getElementById("root"));
+            <Route exact path="/" component={Home}></Route>
+            <Route path="/about" component={About}></Route>
+            <Route path="/contact" component={Contact}></Route>
+
+            <h2>Footer</h2>
+        </div>
+    </Router>
+);
+
+const About = () => (
+    <div>
+        <p>About</p>
+    </div>
+);
+
+const Contact = () => (
+    <div>
+        <p>Contact</p>
+    </div>
+);
+
+ReactDOM.render(<App />, document.getElementById("root"));
+
+
+// A test class
+// class HelloReact extends React.Component {
+
+//     constructor() {
+//         super();
+//         this.state = {
+//             initDone: false,
+//         };
+//     }
+
+//     componentDidMount() {
+//         setTimeout(() => {
+//             this.setState({
+//                 initDone: true,
+//             })
+//         }, 1000);
+//     }
+
+//     render() {
+//         return (
+//             <div>
+//                 {
+//                     this.state.initDone
+//                     ? <p>Hello, initiate is already DONE.</p>
+//                     : <p>Loading...</p>
+//                 }
+//             </div>
+//         );
+//     }
+// }
+
 
 // es6
 // import "./index.less";
