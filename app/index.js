@@ -13,28 +13,29 @@ import {
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 
-import './index.less';
+import './styles/css/common.less';
+import './styles/css/font.css'; // icon from icomoon
 
 import Home from './containers/Home';
 
 const App = () => (
     <Router>
         <div>
-            <h2>Header</h2>
+            {/* <h2>Header</h2> */}
 
-            <ul>
+            {/* <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/about">About</Link></li>
                 <li><Link to="/contact">Contact</Link></li>
-            </ul>
+            </ul> */}
 
-            <hr />
+            {/* <hr /> */}
 
             <Route exact path="/" component={Home}></Route>
             <Route path="/about" component={About}></Route>
             <Route path="/contact" component={Contact}></Route>
 
-            <h2>Footer</h2>
+            {/* <h2>Footer</h2> */}
         </div>
     </Router>
 );

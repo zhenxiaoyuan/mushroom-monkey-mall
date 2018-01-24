@@ -8,51 +8,60 @@ import * as userinfoActions from '../../actions/userinfo';
 
 import { CITY_NAME } from '../../localData/localStorageKey';
 
-class CityName extends React.Component {
-    render() {
-        return (
-            <p>{this.props.userinfo.cityName}</p>
-        );
-    }
-}
+import HomeHeader from '../../components/HomeHeader';
+import Category from '../../components/Category';
 
-class CityNameUpdateButton extends React.Component {
-    render() {
-        return (
-            <button onClick={this.updateCityNameOnClick.bind(this)}>UpdateCityName</button>
-        );
-    }
+// class CityName extends React.Component {
+//     render() {
+//         return (
+//             <p>{this.props.userinfo.cityName}</p>
+//         );
+//     }
+// }
 
-    updateCityNameOnClick() {
-        const actions = this.props.actions;
-        actions.updateCityName({
-            cityName: "Shenyang",
-        });
-    }
-}
+// class CityNameUpdateButton extends React.Component {
+//     render() {
+//         return (
+//             <button onClick={this.updateCityNameOnClick.bind(this)}>UpdateCityName</button>
+//         );
+//     }
+
+//     updateCityNameOnClick() {
+//         const actions = this.props.actions;
+//         actions.updateCityName({
+//             cityName: "Shenyang",
+//         });
+//     }
+// }
 
 class Home extends React.Component {
     constructor() {
         super();
-        this.state = {
-            initDone: false,
-        };
+        // this.state = {
+        //     initDone: false,
+        // };
     }
 
     render() {
         return (
             <div>
+                <HomeHeader cityName={this.props.userinfo.cityName}/>
+
+                <Category />
+
+                {/* <hr />
+
                 <p>container-Home</p>
                 <CityName userinfo={this.props.userinfo}/>
                 <CityNameUpdateButton actions={this.props.userinfoActions}/>
                 
-                <hr />
+                <hr /> */}
 
-                {
+                {/* {
                     this.state.initDone
                         ? localStorage.getItem(CITY_NAME)
                         : "Loading..."
-                }
+                } */}
             </div>
         );
     }
@@ -63,16 +72,19 @@ class Home extends React.Component {
         }
 
         this.props.userinfoActions.updateCityName({
-            cityName: "Shanghai",
+            // cityName: "Shanghai",
+            cityName: localStorage.getItem(CITY_NAME),
         });
 
-        setTimeout(() => {
-            this.setState({
-                initDone: true,
-            });
-        }, 1000);
+        // setTimeout(() => {
+        //     this.setState({
+        //         initDone: true,
+        //     });
+        // }, 1000);
     }
 }
+
+// -------------redux----------------
 
 function mapStateToProps(state) {
     return {

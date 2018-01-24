@@ -14,6 +14,14 @@ module.exports = {
         filename: "bundle.js"
     },
     devServer: {
+        proxy: {
+            // 凡是 `/api` 开头的 http 请求，都会被代理到 localhost:3000 上，由 koa 提供 mock 数据。
+            // koa 代码在 ./mock 目录中，启动命令为 npm run mock
+            '/api': {
+                target: 'http://localhost:3000',
+                secure: false
+            }
+        },
         contentBase: "./dist", // the directory that localhost will load
         historyApiFallback: true,
         inline: true,
@@ -27,10 +35,22 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
+                test: /\.css$/,
+                loader: 'style-loader!css-loader'
+            },
+            {
                 test: /\.less$/,
                 loader: "style-loader!css-loader!less-loader",
                 include: path.resolve(__dirname, "app")
-            }
+            },
+            {
+                test: /\.(png|gif|jpg|jpeg|bmp)$/,
+                loader: 'file-loader'
+            },
+            {
+                test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/,
+                loader: 'url-loader?limit=5000'
+            } // 限制大小小于5k
         ]
     },
     plugins: [
