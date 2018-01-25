@@ -27,6 +27,7 @@ This is the first time I write something on github, if anybody have the advice, 
     2.4 需要使用时，引用font.css即可。
 3 注意html中需要有这句话：<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">，否则浏览器后台查看时分辨率会很高。
 4 fetch是较新的处理表单请求的方法，代替了ajax。
+Promise是什么鬼？下来补一下。
 参考文章 https://github.com/camsong/blog/issues/2
 这个有空看一下 http://javascript.ruanyifeng.com/bom/ajax.html#toc27
 5 使用koa做web框架，好能在本地完成服务器取值的工作。

@@ -8,8 +8,10 @@ import * as userinfoActions from '../../actions/userinfo';
 
 import { CITY_NAME } from '../../localData/localStorageKey';
 
-import HomeHeader from '../../components/HomeHeader';
-import Category from '../../components/Category';
+import Header from '../../components/HomeHeader';
+import Category from '../../components/HomeCategory';
+import Ad from './subpage/Ad';
+import List from './subpage/List';
 
 // class CityName extends React.Component {
 //     render() {
@@ -45,9 +47,17 @@ class Home extends React.Component {
     render() {
         return (
             <div>
-                <HomeHeader cityName={this.props.userinfo.cityName}/>
+                <Header cityName={this.props.userinfo.cityName}/>
 
                 <Category />
+
+                <div style={{height: "15px"}}></div>
+
+                <Ad />
+
+                <div style={{height: "15px"}}></div>
+
+                <List cityName={this.props.userinfo.cityName}/>
 
                 {/* <hr />
 

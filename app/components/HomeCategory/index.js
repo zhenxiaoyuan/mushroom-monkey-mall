@@ -1,4 +1,4 @@
-// components-Category-index.js
+// components-HomeCategory-index.js
 
 import React from 'react';
 
@@ -6,7 +6,7 @@ import './style.less';
 
 import ReactSwipe from 'react-swipe';
 
-class Category extends React.Component {
+class HomeCategory extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -83,4 +83,4 @@ class Category extends React.Component {
     }
 }
 
-export default Category;
+export default HomeCategory;

@@ -2,14 +2,14 @@
 
 import { get } from '../get';
 
-export function getHomeAdData() {
-    return get('/api/homead');
+export function getAdData() {
+    return get('/api/home/ad');
 };
 
 // export const getHomeAdData = () => {
 //     return get('/api/homead');
 // }
 
-export function getHomeListData(city, page) {
-    return get('/api/homelist/' + encodeURIComponent(city) + '/' + page);
+export function getListData(city, page) {
+    return get('/api/home/list/' + encodeURIComponent(city) + '/' + page);
 };

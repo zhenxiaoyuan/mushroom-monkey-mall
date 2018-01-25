@@ -1,0 +1,33 @@
+// components-LoadMore-index.js
+
+import React from 'react';
+
+import './style.less';
+
+class LoadMore extends React.Component {
+    render() {
+        return (
+            <div className="load-more">
+                {
+                    this.props.isLoadingMore
+                    ? <span>加载中...</span>
+                    // 不能再onClick中调用this.props.loadMoreFunction
+                    // 大体意思就是在render这种需要props和state进行渲染的方法中，
+                    // 不能再对props和state进行更新。
+                    // 我的理解是，React会在props和state改变的时候调用 render进行DOM diff然后渲染，
+                    // 如果在渲染过程中再对props和states进行更改，就陷入死循环了。
+                    // 酷炫一点的写法就是匿名函数，如下：
+                    : <span onClick={()=>this.props.loadMoreFunction()}>加载更多</span>
+                    // 普通写法再这里：
+                    // : <span onClick={this.loadMoreHandle.bind(this)}>加载更多</span>
+                }
+            </div>
+        );
+    }
+
+    loadMoreHandle() {
+        this.props.loadMoreFunction();
+    }
+}
+
+export default LoadMore;
