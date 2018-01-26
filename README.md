@@ -1,7 +1,11 @@
-# mushroom-monkey-mall
-A electronic webpage using "React".
+# 蘑菇猴 - MushroomMonkeyMall
 
-Step 0: Install nodejs on your computer.
+### 由React+Redux+Router+Fetch+Koa实现的电商页面
+
+## 安装
+### 第0步：请确保你的电脑上安装了npm，你可以在命令提示符中敲入"npm -v"进行查询。如果没有安装，直接安装node.js即可，它包含了npm。[下载地址](http://nodejs.cn/download/)
+### 第1步：下载我的源代码，你可以点击右上方的绿色按钮（Clone and download）下载；如果你有git，那么在git bash中输入下面这个命令即可。  
+`git clone https://github.com/zhenxiaoyuan/mushroom-monkey-mall`  
 
 Step 1: Download the source and open the root direction in command line.
 
