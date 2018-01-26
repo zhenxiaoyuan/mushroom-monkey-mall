@@ -1,4 +1,5 @@
-// components-List-Item-index.js
+// components - List - Item - index.js
+// 单个产品显示组件
 
 import React from 'react';
 

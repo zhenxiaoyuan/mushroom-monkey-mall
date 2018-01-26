@@ -1,4 +1,5 @@
-// mock-Home-ad.js
+// mock - Home - ad.js
+// Home页-广告数据
 
 module.exports = [
     {

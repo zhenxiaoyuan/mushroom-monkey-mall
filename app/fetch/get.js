@@ -1,4 +1,4 @@
-// fetch-get.js
+// fetch - get.js
 
 import 'whatwg-fetch';
 import 'es6-promise'; // 处理较旧浏览器的兼容性

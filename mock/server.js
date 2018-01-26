@@ -1,4 +1,4 @@
-// mock-server.js
+// mock - server.js
 
 const Koa = require('koa');
 const Router = require('koa-router');

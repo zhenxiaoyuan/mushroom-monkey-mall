@@ -1,4 +1,5 @@
-// components-HomeAd-index.js
+// components - Ad - index.js
+// 广告 { 标题 + 三列图片 }
 
 import React from 'react';
 
@@ -7,7 +8,7 @@ import './style.less';
 class HomeAd extends React.Component {
     render() {
         return (
-            <div id="home-ad">
+            <div id="ad">
             <h2>超值特惠</h2>
                 <div className="ad-container clear-fix">
                 {this.props.data.map((item, index) => {

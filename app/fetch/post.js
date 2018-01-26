@@ -1,4 +1,4 @@
-// fetch-post.js
+// fetch - post.js
 
 import 'whatwg-fetch';
 import 'es6-promise';

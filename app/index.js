@@ -4,18 +4,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+// router
 import {
     BrowserRouter as Router,
     Route,
     Link,
 } from 'react-router-dom';
 
+// redux
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 
+// styles
 import './styles/css/common.less';
 import './styles/css/font.css'; // icon from icomoon
 
+// containers
 import Home from './containers/Home';
 
 const App = () => (
@@ -55,6 +59,7 @@ const Contact = () => (
 const store = configureStore();
 
 ReactDOM.render(
+    // 用Provider将页面包起来，从而可使用redux
     <Provider store={store}>
         <App />
     </Provider>,

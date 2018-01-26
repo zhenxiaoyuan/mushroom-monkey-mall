@@ -1,4 +1,5 @@
-// components-LoadMore-index.js
+// components - LoadMore - index.js
+// 加载更多
 
 import React from 'react';
 
@@ -7,7 +8,9 @@ import './style.less';
 class LoadMore extends React.Component {
     render() {
         return (
-            <div className="load-more">
+            // ref可获取DOM
+            <div className="load-more" ref="loadMore"> 
+                <p>{this.props.isLoadingMore.toString()}</p>
                 {
                     this.props.isLoadingMore
                     ? <span>加载中...</span>
@@ -25,8 +28,27 @@ class LoadMore extends React.Component {
         );
     }
 
-    loadMoreHandle() {
-        this.props.loadMoreFunction();
+    componentDidMount() {
+        let timeoutId;  // 处理节流
+        const loadMoreDOM = this.refs.loadMore; // 获取组件DOM
+        const loadMoreFunction = this.props.loadMoreFunction; // 加载更多函数
+
+        // 监听窗口滚动的函数，监听触发后调用第二个参数中的函数
+        window.addEventListener("scroll", () => {
+            // 如果正在加载，则返回
+            if (this.props.isLoadingMore) {
+                return;
+            }
+
+            if (timeoutId) {clearTimeout(timeoutId)}
+            timeoutId = setTimeout(() => {
+                const loadMoreTop = loadMoreDOM.getBoundingClientRect().top;    // 获取DOM顶部位置
+                const windowHeight = window.screen.height;  // 获取屏幕高度
+                if (loadMoreTop && loadMoreTop < windowHeight) {
+                    loadMoreFunction();
+                }
+            }, 100);    // 处理节流，每100毫秒一次
+        })
     }
 }
 

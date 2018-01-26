@@ -1,24 +1,26 @@
-// components-HomeCategory-index.js
+// components - Category - index.js
+// 轮播图
 
 import React from 'react';
 
 import './style.less';
 
+// 实现轮播图的库
 import ReactSwipe from 'react-swipe';
 
-class HomeCategory extends React.Component {
+class Category extends React.Component {
     constructor() {
         super();
         this.state = {
-            swipeIndex: 0,
+            swipeIndex: 0,  // 轮播图索引
         };
     }
 
     render() {
         const options = {
-            auto: 2400,
-            continuous: true,
-            callback: (index) => {
+            auto: 2400, // 轮播图自动滚动间隔
+            continuous: true,   // 尾首相接连续滚动
+            callback: (index) => {  // 每次滚动后执行的回调函数
                 this.setState({
                     swipeIndex: index,
                 });
@@ -73,6 +75,7 @@ class HomeCategory extends React.Component {
                 </ReactSwipe>
                 <div className="swipe-index-container">
                     <ul>
+                        {/* 注意这里确定是否选中的处理方式 */}
                         <li className={this.state.swipeIndex === 0 ? "selected" : ""}></li>
                         <li className={this.state.swipeIndex === 1 ? "selected" : ""}></li>
                         <li className={this.state.swipeIndex === 2 ? "selected" : ""}></li>
@@ -83,4 +86,4 @@ class HomeCategory extends React.Component {
     }
 }
 
-export default HomeCategory;
+export default Category;

@@ -1,22 +1,23 @@
-// containers-Home-subpage-homeAd.js
+// containers - Home - subpage - Ad.js
 
 import React from 'react';
 
 import { getAdData } from '../../../fetch/Home';
 
-import HomeAd from '../../../components/HomeAd';
+import HomeAd from '../../../components/Ad';
 
 class Ad extends React.Component {
     constructor() {
     super();
         this.state = {
-            adData: [],
+            adData: [], // 存储服务器返回的广告数据
         };
     }
 
     render() {
         return (
             <div>
+                {/* 讲数据传入组件后实现样式 */}
                 <HomeAd data={this.state.adData} />
             </div>
         );
