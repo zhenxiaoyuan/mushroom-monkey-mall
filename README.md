@@ -1,14 +1,13 @@
 # 蘑菇猴 - MushroomMonkeyMall
 
------
 
 一个用React实现的电商前端页面
 
-###技术栈
+### 技术栈
 
 react@16.2 + redux@3.7.2 + react-router@4.2.4 + webpack@3.10.0 + fetch@2.0.3 + less@2.7.3 + koa@2.4.1
 
-###项目运行
+### 项目运行
 
 **注意：** 确保你已经安装了[node.js](http://nodejs.cn/download/)，可在cmd中使用`node -v`进行查看。
 
@@ -29,9 +28,11 @@ react@16.2 + redux@3.7.2 + react-router@4.2.4 + webpack@3.10.0 + fetch@2.0.3 + l
     
 **另：** `npm install`速度缓慢的朋友，建议使用淘宝提供的[cnpm](http://npm.taobao.org/)。
 
-###License
+### License
+
 MIT
     
-###最后
+### 最后
+
 刚接触前端开发不久，对程序有任何疑问或是优化建议，请在Issues中提出，以帮助我改进:smile:
 
