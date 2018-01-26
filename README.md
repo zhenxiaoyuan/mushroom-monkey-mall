@@ -15,6 +15,7 @@ Step 3: use the command "npm run server" to open the webpack-dev-server, and it 
 
 This is the first time I write something on github, if anybody have the advice, please tell me to improve, thanks:)
 
+测试一下有没有被同步测试一下有没有被同步测试一下有没有被同步测试一下有没有被同步测试一下有没有被同步测试一下有没有被同步测试一下有没有被同步测试一下有没有被同步测试一下有没有被同步测试一下有没有被同步测试一下有没有被同步测试一下有没有被同步测试一下有没有被同步测试一下有没有被同步测试一下有没有被同步测试一下有没有被同步
 
 2018-01-22：
 增加了router功能，使用了4.0以上版本，较之前版本变化较大，代码在/app/index.js中。更多功能参考官方文档。
