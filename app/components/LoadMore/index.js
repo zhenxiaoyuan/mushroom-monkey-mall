@@ -10,7 +10,6 @@ class LoadMore extends React.Component {
         return (
             // ref可获取DOM
             <div className="load-more" ref="loadMore"> 
-                <p>{this.props.isLoadingMore.toString()}</p>
                 {
                     this.props.isLoadingMore
                     ? <span>加载中...</span>

@@ -21,6 +21,7 @@ import './styles/css/font.css'; // icon from icomoon
 
 // containers
 import Home from './containers/Home';
+import City from './containers/City';
 
 const App = () => (
     <Router>
@@ -36,7 +37,7 @@ const App = () => (
             {/* <hr /> */}
 
             <Route exact path="/" component={Home}></Route>
-            <Route path="/about" component={About}></Route>
+            <Route path="/city" component={City}></Route>
             <Route path="/contact" component={Contact}></Route>
 
             {/* <h2>Footer</h2> */}

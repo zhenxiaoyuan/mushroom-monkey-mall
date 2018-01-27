@@ -3,6 +3,9 @@
 
 import React from 'react';
 
+// router
+import { Link } from 'react-router-dom';
+
 import './style.less';
 
 class HomeHeader extends React.Component {
@@ -11,9 +14,11 @@ class HomeHeader extends React.Component {
             <div id="home-header" className="clear-fix">
                 {/* 城市名 */}
                 <div className="home-header-left float-left">
-                    <span>{this.props.cityName}</span>
-                    &nbsp;
-                    <span className="icon-keyboard_arrow_down"></span>
+                    <Link to="/city" style={{textDecoration: "none"}}>
+                        <span>{this.props.cityName}</span>
+                        &nbsp;
+                        <span className="icon-keyboard_arrow_down"></span>
+                    </Link>
                 </div>
 
                 {/* 用户按钮 */}

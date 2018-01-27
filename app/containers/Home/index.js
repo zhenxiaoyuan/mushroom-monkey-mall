@@ -58,7 +58,7 @@ class Home extends React.Component {
 
 // -------------redux----------------
 
-// 负责订阅store数据已改变View显示，即subscribe
+// 负责订阅store数据以改变View显示，即subscribe
 function mapStateToProps(state) {
     return {
         userinfo: state.userinfo,
