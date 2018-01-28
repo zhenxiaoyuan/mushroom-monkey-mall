@@ -5,8 +5,12 @@ import React from 'react';
 
 // router
 import { Link } from 'react-router-dom';
+import history from '../../router/history';
 
 import './style.less';
+
+// components
+import SearchInput from '../SearchInput';
 
 class HomeHeader extends React.Component {
     render() {
@@ -14,27 +18,32 @@ class HomeHeader extends React.Component {
             <div id="home-header" className="clear-fix">
                 {/* 城市名 */}
                 <div className="home-header-left float-left">
-                    <Link to="/city" style={{textDecoration: "none"}}>
+                    <Link to="/city" style={{ textDecoration: "none" }}>
                         <span>{this.props.cityName}</span>
                         &nbsp;
                         <span className="icon-keyboard_arrow_down"></span>
                     </Link>
                 </div>
 
-                {/* 用户按钮 */}
-                <div className="home-header-right float-right">
-                    <span className="icon-user"></span>
-                </div>
-
                 {/* 搜索框 */}
                 <div className="home-header-middle float-left">
                     <div className="search-container">
                         <span className="icon-search"></span>
-                        <input type="text" placeholder="Please input the keywords" />
+                        <SearchInput value="" enterHandleFunction={this.enterHandle.bind(this)}/>
                     </div>
+                </div>
+
+                {/* 用户按钮 */}
+                <div className="home-header-right float-right">
+                    <span className="icon-user"></span>
                 </div>
             </div>
         );
+    }
+
+    // 回车操作
+    enterHandle(keywords) {
+        history.push("/search/all/" + encodeURIComponent(keywords));
     }
 }
 

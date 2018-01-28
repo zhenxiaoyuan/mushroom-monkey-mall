@@ -9,7 +9,8 @@ import { bindActionCreators } from 'redux';
 import * as userinfoActions from '../../actions/userinfo';
 
 // router-history
-import createHistory from 'history/createBrowserHistory';
+// import createHistory from 'history/createBrowserHistory';
+import history from '../../router/history';
 
 import { CITY_NAME } from '../../localData/localStorageKey';
 
@@ -48,7 +49,7 @@ class City extends React.Component {
         localStorage.setItem(CITY_NAME, newCityName);
 
         // 返回主页面
-        createHistory({forceRefresh: true}).push("/");  // 这里的forceRefresh强制进行刷新
+        history.push("/");
     }
 }
 
