@@ -11,7 +11,7 @@ import * as userinfoActions from '../../actions/userinfo';
 import { CITY_NAME } from '../../localData/localStorageKey';
 
 // components and subpages
-import Header from '../../components/HomeHeader';
+import HomeHeader from '../../components/HomeHeader';
 import Category from '../../components/Category';
 import Ad from './subpages/Ad';
 import List from './subpages/List';
@@ -25,7 +25,7 @@ class Home extends React.Component {
         return (
             <div>
                 {/* 页面头 带有搜索框 */}
-                <Header cityName={this.props.userinfo.cityName}/>
+                <HomeHeader cityName={this.props.userinfo.cityName}/>
 
                 {/* 轮播图 */}
                 <Category />

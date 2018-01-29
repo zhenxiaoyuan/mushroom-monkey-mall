@@ -1,4 +1,5 @@
 // fetch - Home - index.js
+// 负责获取主页数据
 
 import { get } from '../get';
 

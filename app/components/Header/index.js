@@ -5,6 +5,7 @@ import React from 'react';
 
 import './style.less';
 
+// props => { title: 组件标题 }
 class Header extends React.Component {
     render() {
         return (

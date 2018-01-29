@@ -3,7 +3,9 @@
 
 import React from 'react';
 
+// components and subpages
 import SearchHeader from '../../components/SearchHeader';
+import List from './subpages/List';
 
 class Search extends React.Component {
     render() {
@@ -12,6 +14,9 @@ class Search extends React.Component {
             <div>
                 {/* 搜索页面头部 */}
                 <SearchHeader keywords={params.keywords}/>
+
+                {/* 搜索结果列表 */}
+                <List category={params.category} keywords={params.keywords} />
             </div>
         );
     }

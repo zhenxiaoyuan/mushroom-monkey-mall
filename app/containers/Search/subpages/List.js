@@ -1,12 +1,16 @@
-// containers-Home-subpage-List.js
-// 主页列表子页面
+// containers - Search - subpages- List.js
+// 搜索页列表子页面
 
 import React from 'react';
 
-import { getListData } from '../../../fetch/Home';
-import { CITY_NAME } from '../../../localData/localStorageKey';
+// redux
+import { connect } from 'react-redux';
 
-import HomeList from '../../../components/List';
+// fetch
+import { getListData } from '../../../fetch/Search';
+
+// components
+import SearchList from '../../../components/List';
 import LoadMore from '../../../components/LoadMore';
 
 // 初始化一个组件的 state
@@ -26,20 +30,12 @@ class List extends React.Component {
     render() {
         return (
             <div>
-                <h2 style={{
-                    fontSize: "16px",
-                    fontWeight: "bold",
-                    padding: "10px 15px",
-                    borderBottom: "1px solid #f1f1f1",
-                    backgroundColor: "white",
-                }}>猜你喜欢</h2>
-                
                 {/* 表单数据 */}
-                <HomeList data={this.state.listData} />
+                < SearchList data={this.state.listData} />
 
                 {/* 加载更多 */}
-                <LoadMore isLoadingMore={this.state.isLoadingMore} loadMoreFunction={this.loadMoreData.bind(this)} />
-            </div >
+                < LoadMore isLoadingMore={this.state.isLoadingMore} loadMoreFunction={this.loadMoreData.bind(this)} />
+            </div>
         );
     }
 
@@ -48,16 +44,27 @@ class List extends React.Component {
         this.loadFirstPageData();
     }
 
+    // 处理重新搜索
+    componentDidUpdate(prevProps, prevState) {
+        const category = this.props.category;
+        const keywords = this.props.keywords;
+
+        // 搜索条件完全相等时，忽略。重要！！！
+        if (category === prevProps.category && keywords === prevProps.keywords) {return}
+
+        this.setState(initState);
+
+        this.loadFirstPageData();
+    }
+
     // 加载第一页数据
     loadFirstPageData() {
-        // 页面第一次加载时，需将本地数据赋值给cityName，因为此时redux中的置尚未加载成功
-        const cityName = (
-            this.props.cityName == null
-                ? localStorage.getItem(CITY_NAME)
-                : this.props.cityName
-        );
+        const cityName = this.props.userinfo.cityName;
+        const category = this.props.category;
+        const keywords = this.props.keywords;
+
         // 向服务器发出请求获取表单数据
-        const result = getListData(cityName, 0);
+        const result = getListData(cityName, 0, category, keywords);
 
         // 处理数据
         this.resultHandle(result);
@@ -69,9 +76,11 @@ class List extends React.Component {
             isLoadingMore: true,
         });
 
-        const cityName = this.props.cityName;
+        const cityName = this.props.userinfo.cityName;
+        const category = this.props.category;
+        const keywords = this.props.keywords;
         // 向服务器发出请求获取表单数据
-        const result = getListData(cityName, this.state.page);
+        const result = getListData(cityName, this.state.page, category, keywords);
 
         // 处理数据
         this.resultHandle(result);
@@ -100,4 +109,14 @@ class List extends React.Component {
     }
 }
 
-export default List;
+// -------------redux-------------
+
+function mapStateToProps(state) {
+    return {
+        userinfo: state.userinfo,
+    };
+}
+
+export default connect(
+    mapStateToProps,
+)(List);

@@ -12,8 +12,6 @@ class List extends React.Component {
         const data = this.props.data;
         return (
             <div id="list">
-                <h2 className="list-title">猜你喜欢</h2>
-
                 <div className="list-container">
                     {
                         data.map((item, index) => {

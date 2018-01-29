@@ -16,6 +16,7 @@ import history from './history';
 import Home from '../containers/Home';
 import City from '../containers/City';
 import Search from '../containers/Search';
+import Detail from '../containers/Detail';
 
 const App = () => (
     <Router history={history}>
@@ -23,6 +24,7 @@ const App = () => (
             <Route exact path="/" component={Home}></Route>
             <Route path="/city" component={City}></Route>
             <Route path="/search/:category/:keywords?" component={Search}></Route>
+            <Route path="/detail/:id" component={Detail}></Route>
         </div>
     </Router>
 );
