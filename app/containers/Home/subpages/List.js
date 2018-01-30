@@ -51,11 +51,12 @@ class List extends React.Component {
     // 加载第一页数据
     loadFirstPageData() {
         // 页面第一次加载时，需将本地数据赋值给cityName，因为此时redux中的置尚未加载成功
-        const cityName = (
-            this.props.cityName == null
-                ? localStorage.getItem(CITY_NAME)
-                : this.props.cityName
-        );
+        const cityName = this.props.cityName;
+        // (
+        //     this.props.cityName == null
+        //         ? localStorage.getItem(CITY_NAME)
+        //         : this.props.cityName
+        // );
         // 向服务器发出请求获取表单数据
         const result = getListData(cityName, 0);
 

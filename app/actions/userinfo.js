@@ -4,9 +4,9 @@
 import * as actionTypes from '../constants/userinfo';
 
 // 更新城市名称
-export function updateCityName(data) {
+export function updateUserInfo(data) {
     return {
-        type: actionTypes.USERINFO_CITYNAME,
+        type: actionTypes.USERINFO,
         data,
     }
 };

@@ -5,8 +5,8 @@ import React from 'react';
 
 // redux
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as userinfoActions from '../../actions/userinfo';
+// import { bindActionCreators } from 'redux';
+// import * as userinfoActions from '../../actions/userinfo';
 
 import { CITY_NAME } from '../../localData/localStorageKey';
 
@@ -45,14 +45,14 @@ class Home extends React.Component {
 
     componentDidMount() {
         // 为本地数据赋值
-        if (localStorage.getItem(CITY_NAME) == null) {
-            localStorage.setItem(CITY_NAME, "北京");
-        }
-
-        // 这里的赋值能放在更早的时候就更好了，如何解决？？？
-        this.props.userinfoActions.updateCityName({
-            cityName: localStorage.getItem(CITY_NAME),
-        });
+        // if (localStorage.getItem(CITY_NAME) == null) {
+        //     localStorage.setItem(CITY_NAME, "北京");
+        // }
+        
+        // 这里的赋值能放在更早的时候就更好了，放在reducer中的initialState中即可
+        // this.props.userinfoActions.updateUserInfo({
+        //     cityName: localStorage.getItem(CITY_NAME),
+        // });
     }
 }
 
@@ -66,14 +66,14 @@ function mapStateToProps(state) {
 }
 
 // 负责发出action并交由store进行reducer处理，从而更新store中的数据，即dispatch
-function mapDispatchToProps(dispatch) {
-    return {
-        // 绑定action
-        userinfoActions: bindActionCreators(userinfoActions, dispatch),
-    };
-}
+// function mapDispatchToProps(dispatch) {
+//     return {
+//         // 绑定action
+//         userinfoActions: bindActionCreators(userinfoActions, dispatch),
+//     };
+// }
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps,
+    // mapDispatchToProps,
 )(Home);

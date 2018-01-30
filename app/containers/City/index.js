@@ -43,7 +43,7 @@ class City extends React.Component {
         // 修改redux中存储的state
         const userinfo = this.props.userinfo;
         userinfo.cityName = newCityName;
-        this.props.userinfoActions.updateCityName(userinfo);
+        this.props.userinfoActions.updateUserInfo(userinfo);
 
         // 修改localStorage中存储的值
         localStorage.setItem(CITY_NAME, newCityName);

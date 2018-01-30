@@ -29,13 +29,15 @@ class HomeHeader extends React.Component {
                 <div className="home-header-middle float-left">
                     <div className="search-container">
                         <span className="icon-search"></span>
-                        <SearchInput value="" enterHandleFunction={this.enterHandle.bind(this)}/>
+                        <SearchInput value="" enterHandleFunction={this.enterHandle.bind(this)} />
                     </div>
                 </div>
 
                 {/* 用户按钮 */}
                 <div className="home-header-right float-right">
-                    <span className="icon-user"></span>
+                    <Link to="/login" style={{ textDecoration: "none" }}>
+                        <span className="icon-user"></span>
+                    </Link>
                 </div>
             </div>
         );
