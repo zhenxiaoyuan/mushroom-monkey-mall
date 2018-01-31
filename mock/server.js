@@ -85,6 +85,15 @@ router.get('/api/detail/comments/:id/:page', (ctx, next) => {
     ctx.body = detailCommentsData;
 });
 
+// 用户页 —— 订单列表
+const userOrdersData = require('./User/orders');
+router.get('/api/user/orders', (ctx, next) => {
+    console.log("Orders");
+    console.log("=================");
+
+    ctx.body = userOrdersData;
+});
+
 // app.use(async ctx => {
 //     ctx.body = 'Hello World';
 // });

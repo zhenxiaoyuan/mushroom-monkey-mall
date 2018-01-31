@@ -16,7 +16,6 @@ import { USER_NAME } from '../../localData/localStorageKey';
 // components
 import Header from '../../components/Header';
 import LoginInput from '../../components/LoginInput';
-import userinfo from '../../reducers/userinfo';
 
 class Login extends React.Component {
     constructor() {

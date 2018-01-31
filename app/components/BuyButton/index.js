@@ -8,7 +8,7 @@ import './style.less';
 class BuyButton extends React.Component {
     render() {
         return (
-            <div>
+            <div className="buy-container float-right">
                 <button onClick={() => {this.props.buyFunction()}}>购买</button>
             </div>
         );

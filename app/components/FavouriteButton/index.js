@@ -8,14 +8,12 @@ import './style.less';
 class FavouriteButton extends React.Component {
     render() {
         return (
-            <div>
-                <button onClick={() => {this.props.favouriteFunction()}}>
-                    {
-                        this.props.isFavourite
-                        ? "已收藏"
-                        : "收藏"
-                    }
-                </button>
+            <div className="favourite-container float-left">
+                {
+                    this.props.isFavourite
+                    ? <button className="selected" onClick={() => {this.props.favouriteFunction()}}>已收藏</button>
+                    : <button onClick={() => {this.props.favouriteFunction()}}>收藏</button>
+                 }
             </div>
         );
     }

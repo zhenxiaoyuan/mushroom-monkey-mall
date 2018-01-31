@@ -26,7 +26,7 @@ class Buttons extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="buttons-container clear-fix">
                 <BuyButton buyFunction={this.buy.bind(this)} />
                 <FavouriteButton isFavourite={this.state.isFavourite} favouriteFunction={this.favourite.bind(this)} />
             </div>
@@ -34,7 +34,8 @@ class Buttons extends React.Component {
     }
 
     componentDidMount() {
-
+        // 检测是否收藏
+        this.checkFavourite();
     }
 
     // 收藏操作
@@ -46,29 +47,26 @@ class Buttons extends React.Component {
         // 2 - 修改isFavourite
         if (this.checkLogin()) {
             this.state.isFavourite
-            ? this.props.favouriteActions.remove({id: id}) // 取消收藏
-            : this.props.favouriteActions.add({id: id}) // 添加收藏
+                ? this.props.favouriteActions.remove({ id: id }) // 取消收藏
+                : this.props.favouriteActions.add({ id: id }) // 添加收藏
 
             this.setState({
                 isFavourite: !this.state.isFavourite,
             })
-        } 
+        }
         // 如果未登录
         // 跳转至登录页
         else {
             history.push("/login/" + encodeURIComponent("/detail/" + this.props.id)) // 未登录，跳转到登录页，并附带该页链接 
         }
-
-        console.log(this.props.favourite);
-
     }
 
     // 购买操作
     buy() {
         // 检测是否已登陆
         this.checkLogin()
-        ? history.push("/user") // 已登录，跳转到用户页，此处省略购买流程
-        : history.push("/login/" + encodeURIComponent("/detail/" + this.props.id)) // 未登录，跳转到登录页，并附带该页链接
+            ? history.push("/user") // 已登录，跳转到用户页，此处省略购买流程
+            : history.push("/login/" + encodeURIComponent("/detail/" + this.props.id)) // 未登录，跳转到登录页，并附带该页链接
     }
 
     // 检测用户是否已登陆
@@ -83,6 +81,21 @@ class Buttons extends React.Component {
         }
         // 如果已经登陆，则返回true继续操作
         return true;
+    }
+
+    // 检测是否已收藏
+    checkFavourite() {
+        const id = this.props.id;
+        const favourite = this.props.favourite;
+
+        favourite.forEach((item) => {
+            if (item.id === id) {
+                this.setState({
+                    isFavourite: true
+                })
+                return;
+            }
+        });
     }
 }
 
